@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: gateaux-zohra-korichi
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CONTACT_EMAIL
+        sync: false
+      - key: EMAIL_PROVIDER_API_KEY
+        sync: false
