@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4E8B1;
+  --color-gold-dark: #997A15;
+  --color-burgundy: #4A0E17;
+  --color-burgundy-light: #7A2230;
+  --color-cream: #FAF8F5;
+  --color-charcoal: #2C221E;
+}
+
+:root {
+  --primary: #4A0E17;
+  --primary-foreground: #FAF8F5;
+  --sidebar-primary: #4A0E17;
+  --sidebar-primary-foreground: #FAF8F5;
+  --radius: 0.75rem;
+  --background: #FAF8F5;
+  --foreground: #2C221E;
+  --card: #FFFFFF;
+  --card-foreground: #2C221E;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C221E;
+  --secondary: #F4E8B1;
+  --secondary-foreground: #4A0E17;
+  --muted: #F0ECE1;
+  --muted-foreground: #70635D;
+  --accent: #D4AF37;
+  --accent-foreground: #2C221E;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #E6E0D5;
+  --input: #E6E0D5;
+  --ring: #D4AF37;
+}
+
+.dark {
+  --primary: #D4AF37;
+  --primary-foreground: #2C221E;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #2C221E;
+  --background: #1C1412;
+  --foreground: #FAF8F5;
+  --card: #281D1A;
+  --card-foreground: #FAF8F5;
+  --popover: #281D1A;
+  --popover-foreground: #FAF8F5;
+  --secondary: #3D2924;
+  --secondary-foreground: #F4E8B1;
+  --muted: #332420;
+  --muted-foreground: #B5A49D;
+  --accent: #D4AF37;
+  --accent-foreground: #1C1412;
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #3D2924;
+  --input: #3D2924;
+  --ring: #D4AF37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-gold/30 selection:text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
